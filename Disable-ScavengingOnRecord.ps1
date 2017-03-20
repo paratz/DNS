@@ -13,7 +13,7 @@ Get-Content -Path $InputLogPath | ForEach-Object {
 $DNSRecord = "$_.$DomainName"
 
 #Cambiar por Nombre de Registro
-$record = Get-WmiObject -ComputerName $DNSServerName -Namespace 'root\MicrosoftDNS' -Class MicrosoftDNS_AType -filter "OwnerName='$DNSRecor'"
+$record = Get-WmiObject -ComputerName $DNSServerName -Namespace 'root\MicrosoftDNS' -Class MicrosoftDNS_AType -filter "OwnerName='$DNSRecord'"
 $record.timeStamp = 0 # checkbox is unchecked,  3579756 is checked
 $record.psbase.put()
 
@@ -25,5 +25,3 @@ Stop-Transcript
 #$record = Get-WmiObject -ComputerName dnsServerName -Namespace 'root\MicrosoftDNS' -Class MicrosoftDNS_AType -filter "IPAddress='192.168.168.1'"
 #$record.timeStamp = 0 # checkbox is unchecked,  3579756 is checked
 #$record.psbase.put()
-
-

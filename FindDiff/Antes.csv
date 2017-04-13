@@ -1,0 +1,32 @@
+Name,Type,Data,Timestamp
+_msdcs,,,
+_sites,,,
+_tcp,,,
+_udp,,,
+domaindnszones,,,
+forestdnszones,,,
+(same as parent folder),Start of Authority (SOA),[1519], srvdc1.contoso.com., hostmaster.contoso.com.,static
+(same as parent folder),Name Server (NS),srvdc2.contoso.com.,static
+(same as parent folder),Name Server (NS),srvdc1.contoso.com.,static
+(same as parent folder),Name Server (NS),srvdc3.contoso.com.,static
+(same as parent folder),Host (A),161.131.192.224,?4/?13/?2017 5:00:00 AM
+(same as parent folder),Host (A),161.131.192.225,?4/?12/?2017 8:00:00 AM
+(same as parent folder),Host (A),161.131.192.222,?4/?12/?2017 7:00:00 AM
+(same as parent folder),IPv6 Host (AAAA),2002:a183:c0e1:0000:0000:0000:a183:c0e1,?4/?12/?2017 6:00:00 AM
+(same as parent folder),IPv6 Host (AAAA),2002:a183:c0de:0000:0000:0000:a183:c0de,?4/?13/?2017 6:00:00 AM
+(same as parent folder),IPv6 Host (AAAA),2002:a183:c0e0:0000:0000:0000:a183:c0e0,?4/?12/?2017 7:00:00 AM
+autodiscover,Alias (CNAME),srvap3.contoso.com.,static
+legacy,Alias (CNAME),srvap1.contoso.com.,static
+srvap1,Host (A),161.131.192.223,?4/?10/?2017 5:00:00 AM
+srvap1,IPv6 Host (AAAA),2002:a183:c0df:0000:0000:0000:a183:c0df,?4/?10/?2017 5:00:00 AM
+srvap2,Host (A),161.131.192.228,?4/?5/?2017 7:00:00 AM
+srvap3,Host (A),161.131.192.229,?3/?30/?2017 6:00:00 AM
+srvap3,IPv6 Host (AAAA),2002:a183:c0e5:0000:0000:0000:a183:c0e5,?3/?30/?2017 6:00:00 AM
+srvdc1,Host (A),161.131.192.222,static
+srvdc2,Host (A),161.131.192.224,static
+srvdc3,Host (A),161.131.192.225,static
+srvdc3,IPv6 Host (AAAA),2002:a183:c0e1:0000:0000:0000:a183:c0e1,static
+srvdc4,Host (A),161.131.192.230,?4/?5/?2017 5:00:00 AM
+webmail,Alias (CNAME),srvap3.contoso.com.,static
+wkstn1,Host (A),161.131.192.230,?4/?11/?2017 6:00:00 AM
+wkstn1,IPv6 Host (AAAA),2002:a183:c0e6:0000:0000:0000:a183:c0e6,?4/?11/?2017 6:00:00 AM

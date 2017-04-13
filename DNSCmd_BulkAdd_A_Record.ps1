@@ -1,12 +1,29 @@
-﻿####################### CSV SETTINGS ##################################
-# HostName  IP            type   Zone         dnsserver               #
-# Server1   10.11.12.101   A     contoso.com   srvdc1.contoso.com    #
-# Server2   10.11.12.102   A     contoso.com   srvdc1.contoso.com    #
-# Server3   10.11.12.103   A     contoso.com   srvdc1.contoso.com    #
-# Server4   10.11.12.104   A     contoso.com   srvdc1.contoso.com    #
-# Server5   10.11.12.105   A     contoso.com   srvdc1.contoso.com    #
-#                                                                     #
-#######################################################################
+﻿Param(
+  [string]$Zone,
+  [string]$DnsServer,
+  [string]$DiffFile,
+  [string]$logfile
+  
+)
+
+#Este script sirve para agregar de manera masiva los registros descriptos en un archivo .csv
+#
+#Utilización:
+#
+# .\DNSCmd_BulkAdd_A_Record.ps1 -Zone contoso.com -DnsServer srvdc1.contoso.com -DiffFile "C:\GitHub\DNS\FindDiff\Diff.csv" -LogFile "C:\GitHub\DNS\FindDiff\log.txt"
+
+#variables para probar los parametros
+#$logfile = "c:\temp\Add_records_list.txt"
+#$DiffFile = "C:\GitHub\DNS\FindDiff\Diff.csv"
+#$DnsServer = "srvdc1.contoso.com"
+#$Zone = "contoso.com"
+
+#Ejemplo del output que debe tener el csv file
+####################### CSV SETTINGS ###################################
+# Name	    Type      Data	            Timestamp                      #
+# srvap1	Host (A)  161.131.192.223	?4/?10/?2017 5:00:00 AM        #
+# srvap2	Host (A)  161.131.192.228	?4/?5/?2017 7:00:00 AM         #
+########################################################################
 
 clear-host
 
@@ -17,14 +34,11 @@ $c = "cyan"
 $g = "green"
 
 # DNS Variables 
-$zone       = "contoso.com"
 $type       = "A"
-$Dns_Server = "srvdc1.contoso.com"
-$d          = "DNS Records"
 
 # Read the csv file 
-$logfile = "c:\temp\dns\Add_records_list.txt"
-$list    = "c:\temp\dns\DNS_Bulk_import.csv" 
+
+$list    = $DiffFile 
 $lcount  = (Import-CSV -Path $list).count
 $list_1  = Import-CSV -Path $list 
 
@@ -65,7 +79,7 @@ $list_1 | ForEach{
 
 #And in my code I need to Age this record:
 
-dnscmd.exe $_.dnsserver /RecordAdd $_.zone $_.name /Aging $_.type $_.IP 
+dnscmd.exe $DnsServer /RecordAdd $Zone $_.Name /Aging $Type $_.Data
 
 # Providing Information 
 write-Host -f $g  "$("$_.name") added successfully on $($_."Zone")" 

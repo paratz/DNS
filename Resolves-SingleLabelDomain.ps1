@@ -49,6 +49,8 @@ $IntranetName = "$_.$DomainName"
 
 Resolve-DnsName -Name $IntranetName | Export-Csv -Path $OutputLogPath -Append -NoTypeInformation -Force
 
+
+
 }
 
 Stop-Transcript
